@@ -1,6 +1,8 @@
 package com.example.administrator.myanimation;
 
+import android.app.Service;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -142,7 +144,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 main.startAnimation(ma);
+
+                //添加震动模块。设置震动时长为500ms
+                Vibrator vib = (Vibrator) MainActivity.this.getSystemService(Service.VIBRATOR_SERVICE);
+                vib.vibrate(500);
+
             }
         });
     }
+
 }
